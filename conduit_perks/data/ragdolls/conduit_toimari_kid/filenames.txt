@@ -1,0 +1,6 @@
+data/ragdolls/conduit_toimari_kid/torso.png
+data/ragdolls/conduit_toimari_kid/head.png
+data/ragdolls/conduit_toimari_kid/arm_l.png
+data/ragdolls/conduit_toimari_kid/arm_r.png
+data/ragdolls/conduit_toimari_kid/foot_l.png
+data/ragdolls/conduit_toimari_kid/foot_r.png

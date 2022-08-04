@@ -1,0 +1,8 @@
+data/ragdolls/conduit_player_gold/torso.png
+data/ragdolls/conduit_player_gold/right_thigh.png
+data/ragdolls/conduit_player_gold/right_arm.png
+data/ragdolls/conduit_player_gold/right_hand.png
+data/ragdolls/conduit_player_gold/left_thigh.png
+data/ragdolls/conduit_player_gold/left_arm.png
+data/ragdolls/conduit_player_gold/left_hand.png
+data/ragdolls/conduit_player_gold/head.png
