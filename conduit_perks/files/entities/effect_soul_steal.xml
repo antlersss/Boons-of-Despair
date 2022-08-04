@@ -1,0 +1,16 @@
+<Entity>
+
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+		_enabled="1"
+        effect="NONE"
+    ></GameEffectComponent>
+	
+	<LuaComponent
+		script_damage_about_to_be_received="mods/conduit_perks/files/scripts/soul_steal.lua"
+		remove_after_executed="1">
+	</LuaComponent>
+	
+</Entity>

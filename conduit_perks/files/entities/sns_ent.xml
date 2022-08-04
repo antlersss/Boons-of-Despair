@@ -1,0 +1,14 @@
+<Entity name="DISP_SNS_ENT">
+	
+	<InheritTransformComponent>
+	</InheritTransformComponent>
+	
+	<VariableStorageComponent>
+	</VariableStorageComponent>
+	
+	<LuaComponent
+		script_source_file="mods/conduit_perks/files/scripts/disparity/sns_boost.lua"
+		execute_every_n_frame="60"
+	></LuaComponent>
+	
+</Entity>

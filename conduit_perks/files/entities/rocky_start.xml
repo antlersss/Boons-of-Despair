@@ -1,0 +1,165 @@
+<Entity tags="disp_ent" >
+	
+	<InheritTransformComponent>
+	</InheritTransformComponent>
+	
+	<GameEffectComponent 
+		effect="BREATH_UNDERWATER"
+		frames="-1"
+	></GameEffectComponent>
+
+	<GameEffectComponent 
+		effect="STAINS_DROP_FASTER"
+		frames="-1"
+	></GameEffectComponent>
+	
+	<MagicConvertMaterialComponent
+		kill_when_finished="1"
+		from_material=""
+		from_material_tag="[hot]"
+		steps_per_frame="2"
+		to_material="smoke"
+		clean_stains="0"
+		is_circle="1"
+		radius="64" 
+		loop="1"
+		>
+	</MagicConvertMaterialComponent>
+	
+	<MagicConvertMaterialComponent
+		kill_when_finished="1"
+		from_material=""
+		from_material_tag="[lava]"
+		steps_per_frame="2"
+		to_material="lavarock_static"
+		clean_stains="0"
+		is_circle="1"
+		radius="64" 
+		loop="1"
+		>
+	</MagicConvertMaterialComponent>
+	
+	<MagicConvertMaterialComponent
+		kill_when_finished="1"
+		from_material=""
+		from_material_tag="[molten]"
+		steps_per_frame="2"
+		to_material="rock_static"
+		clean_stains="0"
+		is_circle="1"
+		radius="64" 
+		loop="1"
+		>
+	</MagicConvertMaterialComponent>
+	
+	<LuaComponent
+		script_source_file="data/scripts/items/waterstone.lua"
+		execute_every_n_frame="5"
+		>
+	</LuaComponent>
+	
+	<MagicConvertMaterialComponent
+		kill_when_finished="0"
+		extinguish_fire="1"
+		is_circle="1"
+		loop="1"
+		radius="64" >
+	</MagicConvertMaterialComponent>
+	
+	<GameEffectComponent 
+		effect="PROTECTION_FIRE"
+		frames="-1"
+	></GameEffectComponent>
+
+	<GameEffectComponent 
+		effect="FRIEND_FIREMAGE"
+		frames="-1"
+	></GameEffectComponent>
+
+	<MagicConvertMaterialComponent
+		kill_when_finished="0"
+		steps_per_frame="3"
+		from_material="water"
+		to_material="steam"
+		clean_stains="0"
+		is_circle="1"
+		radius="5" 
+		reaction_audio_amount="0.005"
+	></MagicConvertMaterialComponent>
+  
+	<MagicConvertMaterialComponent
+		kill_when_finished="0"
+		steps_per_frame="3"
+		from_material="water_swamp"
+		to_material="steam"
+		clean_stains="0"
+		is_circle="1"
+		radius="5" 
+		reaction_audio_amount="0.005"
+	></MagicConvertMaterialComponent>
+
+	<MagicConvertMaterialComponent
+		kill_when_finished="0"
+		steps_per_frame="3"
+		from_material="water_salt"
+		to_material="salt"
+		clean_stains="0"
+		is_circle="1"
+		radius="1" 
+		reaction_audio_amount="0.005"
+	></MagicConvertMaterialComponent>
+
+	<MagicConvertMaterialComponent
+		kill_when_finished="0"
+		steps_per_frame="3"
+		from_material="water_salt"
+		to_material="steam"
+		clean_stains="0"
+		is_circle="1"
+		radius="5" 
+		reaction_audio_amount="0.005"
+	></MagicConvertMaterialComponent>
+
+	<MagicConvertMaterialComponent
+		kill_when_finished="0"
+		steps_per_frame="3"
+		from_material="radioactive_liquid"
+		to_material="radioactive_gas"
+		clean_stains="0"
+		is_circle="1"
+		radius="5" 
+		reaction_audio_amount="0.005"
+	></MagicConvertMaterialComponent>
+	
+	<ElectricitySourceComponent
+		radius="24"
+		emission_interval_frames="64"
+	></ElectricitySourceComponent>
+
+	<GameEffectComponent 
+		effect="PROTECTION_ELECTRICITY"
+		frames="-1"
+	></GameEffectComponent>
+
+	<GameEffectComponent 
+		effect="FRIEND_THUNDERMAGE"
+		frames="-1"
+	></GameEffectComponent>
+
+
+	<MagicConvertMaterialComponent
+		kill_when_finished="0"
+		steps_per_frame="3"
+		from_material_tag="[earth]"
+		to_material="soil"
+		clean_stains="0"
+		is_circle="1"
+		radius="48" 
+		reaction_audio_amount="0.005"
+	></MagicConvertMaterialComponent>
+	
+	<LuaComponent
+		script_kick="data/scripts/items/stonestone.lua"
+		execute_every_n_frame="-1"
+	></LuaComponent>
+</Entity>

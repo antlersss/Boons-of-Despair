@@ -1,0 +1,14 @@
+<Entity>
+	<MagicConvertMaterialComponent
+      _enabled="1"
+      kill_when_finished="0"
+      from_material="glowstone"
+      steps_per_frame="5"
+      to_material="blood"
+      radius="64" >
+    </MagicConvertMaterialComponent>
+	
+	<LifetimeComponent
+		lifetime="150"
+	></LifetimeComponent>
+</Entity>

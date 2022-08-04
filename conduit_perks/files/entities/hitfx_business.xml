@@ -1,0 +1,42 @@
+<Entity>
+
+	<InheritTransformComponent>
+	</InheritTransformComponent>
+
+	<ParticleEmitterComponent 
+		emitted_material_name="gold"
+		offset.x="0"
+		offset.y="0"
+		x_pos_offset_min="-1"
+		x_pos_offset_max="1"
+		y_pos_offset_min="-1"
+		y_pos_offset_max="1"
+		gravity.y="0.2"
+		x_vel_min="-1"
+		x_vel_max="1"
+		y_vel_min="-1"
+		y_vel_max="1"
+		count_min="2"
+		count_max="3"
+		is_trail="1"
+		trail_gap="0.5"
+		fade_based_on_lifetime="1"
+		lifetime_min="0.9"
+		lifetime_max="1.5"
+		airflow_force="1.8"
+		airflow_time="0.5"
+		airflow_scale="0.06"
+		create_real_particles="0"
+		emit_cosmetic_particles="1"
+		render_on_grid="0"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		is_emitting="1" >
+	</ParticleEmitterComponent>
+	
+	<HitEffectComponent 
+		effect_hit="LOAD_UNIQUE_CHILD_ENTITY"
+		value_string="mods/conduit_perks/files/entities/effect_risky.xml" >
+	</HitEffectComponent >
+	
+</Entity>

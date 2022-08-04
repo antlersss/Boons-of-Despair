@@ -1,0 +1,17 @@
+<Entity>
+
+	<InheritTransformComponent 
+		_enabled="1" >
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+		_enabled="1"
+        effect="NONE"
+    ></GameEffectComponent >
+	
+	<LuaComponent
+		script_damage_about_to_be_received="mods/conduit_perks/files/scripts/business_flow.lua"
+		remove_after_executed="1">
+	</LuaComponent>
+	
+</Entity>

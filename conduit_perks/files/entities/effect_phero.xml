@@ -1,0 +1,32 @@
+<Entity>
+
+	<Base file="data/entities/particles/charm.xml" >
+		<SpriteParticleEmitterComponent
+		    emission_interval_min_frames="5"
+    		emission_interval_max_frames="15"
+			randomize_position_inside_hitbox="1"  >
+		</SpriteParticleEmitterComponent>
+	</Base>
+	
+	<InheritTransformComponent 
+		_enabled="1" >
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+        effect="CHARM"
+        frames="420"
+    >
+	</GameEffectComponent >
+	
+	<LuaComponent
+		script_source_file="mods/conduit_perks/files/scripts/phero_added.lua"
+		remove_after_executed="1">
+	</LuaComponent>
+	
+	<LuaComponent
+		script_source_file="mods/conduit_perks/files/scripts/phero_removed.lua"
+		execute_every_n_frame="-1"
+		execute_on_removed="1">
+	</LuaComponent>
+	
+</Entity>

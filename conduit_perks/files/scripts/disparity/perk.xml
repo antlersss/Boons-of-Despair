@@ -1,0 +1,10 @@
+<Entity tags="teleportable_NOT,perk,conduit_disp">
+
+  <LuaComponent 
+	script_source_file="mods/conduit_perks/files/scripts/disparity/remove_perk_effect.lua"
+	execute_on_removed="1"
+	execute_every_n_frame="-1"
+    script_item_picked_up="mods/conduit_perks/files/scripts/perk_pickup.lua" >
+  </LuaComponent>
+  
+</Entity>

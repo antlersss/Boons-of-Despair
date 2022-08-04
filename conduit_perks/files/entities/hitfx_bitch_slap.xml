@@ -1,0 +1,19 @@
+<Entity>
+
+	<InheritTransformComponent>
+	</InheritTransformComponent>
+
+	<Base file="data/entities/particles/charm.xml" >
+		<SpriteParticleEmitterComponent
+			emission_interval_min_frames="1"
+			emission_interval_max_frames="3"
+			randomize_position_inside_hitbox="0"  >
+		</SpriteParticleEmitterComponent>
+	</Base>
+	
+	<HitEffectComponent 
+		effect_hit="LOAD_UNIQUE_CHILD_ENTITY"
+		value_string="mods/conduit_perks/files/entities/effect_phero.xml" >
+	</HitEffectComponent >
+	
+</Entity>

@@ -1,0 +1,11 @@
+<Entity>
+
+	<InheritTransformComponent>
+	</InheritTransformComponent>
+	
+	<HitEffectComponent 
+		effect_hit="LOAD_UNIQUE_GAME_EFFECT"
+		value_string="mods/conduit_perks/files/entities/effect_sight.xml" >
+	</HitEffectComponent >
+	
+</Entity>

@@ -1,0 +1,19 @@
+<Entity>
+
+	<InheritTransformComponent 
+		_enabled="1" >
+    </InheritTransformComponent>	
+	
+    <GameEffectComponent 
+		_enabled="1"
+        effect="NONE"
+		frames="10"
+    ></GameEffectComponent>
+	
+	<LuaComponent
+		script_damage_about_to_be_received="mods/conduit_perks/files/scripts/lethal_blessing_check.lua"
+		execute_every_n_frame="-1"
+		remove_after_executed="1">
+	</LuaComponent>
+	
+</Entity>

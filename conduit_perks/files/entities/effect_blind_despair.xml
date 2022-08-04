@@ -1,0 +1,18 @@
+<Entity name="sights_curse">
+
+	<InheritTransformComponent 
+		_enabled="1" >
+    </InheritTransformComponent>	
+
+    <GameEffectComponent 
+        effect="BLINDNESS"
+        frames="720"
+    >
+	</GameEffectComponent >
+
+	<LuaComponent
+		script_damage_received="mods/conduit_perks/files/scripts/lethal_blessing_check.lua"
+		remove_after_executed="1">
+	</LuaComponent>
+	
+</Entity>

@@ -1,0 +1,18 @@
+<Entity>
+
+	<InheritTransformComponent 
+		_enabled="1" >
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+		_enabled="1"
+        effect="NONE"
+    ></GameEffectComponent >
+	
+	<LuaComponent
+		script_source_file="mods/conduit_perks/files/scripts/gold_kill.lua"
+		execute_on_removed="1"
+		remove_after_executed="1">
+	</LuaComponent>
+	
+</Entity>

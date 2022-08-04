@@ -1,0 +1,18 @@
+<Entity name="DISP_STAR_CHECKER">
+
+	<InheritTransformComponent>
+	</InheritTransformComponent>
+	
+	<GameEffectComponent 
+		_enabled="1"
+		effect="NONE"
+		frames="-1"
+	></GameEffectComponent>
+	
+	<LuaComponent
+		script_source_file="mods/conduit_perks/files/scripts/star_spawn.lua"
+		execute_on_removed="1"
+		execute_every_n_frame="-1"
+	></LuaComponent>
+
+</Entity>
