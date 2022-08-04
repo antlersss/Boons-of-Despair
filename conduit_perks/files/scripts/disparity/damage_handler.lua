@@ -4,7 +4,7 @@ function damage_about_to_be_received( damage, x, y, entity_thats_responsible, cr
 	if GameHasFlagRun("DISPARITY_PICKED_CERAMIC_ARMOR") and new_dam > 0 then
 		local count = GlobalsGetValue( "DISPARITY_PICKED_CERAMIC_ARMOR_PICKUP_COUNT", 0 )
 		count = 1.2 ^ count
-		new_dam = math.max(new_dam - 0.2 * count), 0) * count
+		new_dam = math.max((new_dam - 0.2) * count, 0) * count
 	end
 	if GameHasFlagRun("DISPARITY_PICKED_IRON_BALLS") and eid == entity_thats_responsible and new_dam > 0.0 then
 		local count = GlobalsGetValue( "DISPARITY_PICKED_IRON_BALLS_PICKUP_COUNT", 0 )
