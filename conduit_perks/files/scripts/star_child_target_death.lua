@@ -22,7 +22,7 @@ function death( damage_type_bit_field, damage_message, entity_thats_responsible,
 		local current = ComponentGetValue2( wallet, "money" )
 		local extra = GameGetGameEffectCount( player, "EXTRA_MONEY" )
 		extra = 2 ^ (extra + GameGetGameEffectCount( player, "EXTRA_MONEY_TRICK_KILL" ))
-		ComponentSetValue2( wallet, "money", 20 * extra + current)
+		ComponentSetValue2( wallet, "money", 50 * extra + current)
 		local x, y = EntityGetTransform(player)
 	end
 end
