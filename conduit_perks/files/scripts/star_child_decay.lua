@@ -25,7 +25,7 @@ for i, v in ipairs(targets) do
 		end
 	end
 end
-targets = EntityGetInRadiusWithTag( x, y, math.ceil(radius * 30) + 10, "homing_target" )
+targets = EntityGetInRadiusWithTag( x, y, math.ceil(radius * 30) + 12, "homing_target" )
 for i, v in ipairs(targets) do
 	if not EntityHasTag( v, "DISP_STAR_CHILD_TARGET" ) and not EntityHasTag( v, "player_unit") then
 		EntityAddTag( v, "DISP_STAR_CHILD_TARGET")
@@ -88,7 +88,7 @@ local magic_conversion_comps = EntityGetComponent( entity_id, "MagicConvertMater
 for i, v in ipairs(magic_conversion_comps) do
 	if i == 1 and radius > 2.5 then
 		ComponentSetValue2( v, "to_material", CellFactory_GetType("lava") )
-		if radius == 5 then
+		if radius > 4.8 then
 			ComponentSetValue2( v, "convert_entities", true )
 		else
 			ComponentSetValue2( v, "convert_entities", false )
@@ -104,10 +104,10 @@ local music_comp = EntityGetFirstComponentIncludingDisabled( entity_id, "MusicEn
 ComponentSetValue2( music_comp, "energy_target", 20 * radius )
 
 local bh_comp = EntityGetFirstComponentIncludingDisabled( entity_id, "BlackHoleComponent" )
-if radius > 3.25 then
+if radius > 4 then
 	EntitySetComponentIsEnabled( entity_id, bh_comp, true )
 	ComponentSetValue2( bh_comp, "damage_probability", 20 * radius )
-	ComponentSetValue2( bh_comp, "radius", math.ceil(radius * 26 + 1))
+	ComponentSetValue2( bh_comp, "radius", math.ceil((radius - 0.5) * 26) + 1)
 	ComponentSetValue2( bh_comp, "particle_attractor_force", radius/1.35)
 	ComponentSetValue2( bh_comp, "damage_amount", (radius - 2) * 0.1 )
 else

@@ -3,12 +3,6 @@
 	<Base file="data/entities/base_enemy_basic.xml" >
 		<ItemChestComponent level="2" > </ItemChestComponent>
 		
-		<LuaComponent
-			_enabled="0"
-			script_death=""
-			>
-		</LuaComponent>
-		
 		<AnimalAIComponent 
 			_enabled="1" 
 			preferred_job="JobDefault"
@@ -123,7 +117,7 @@
 	</VariableStorageComponent>
 	
 	<LuaComponent
-		script_source_file="data/scripts/animals/homunculus_teleport.lua"
+		script_source_file="mods/conduit_perks/files/scripts/toimari_teleport.lua"
 		execute_every_n_frame="120"
 		>
 	</LuaComponent>
