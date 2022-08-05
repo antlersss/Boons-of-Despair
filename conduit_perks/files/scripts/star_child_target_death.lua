@@ -18,6 +18,7 @@ function death( damage_type_bit_field, damage_message, entity_thats_responsible,
 		local value = ComponentGetValue2(vscid, "value_int")
 		ComponentSetValue2( vscid, "value_int", value + 15 + Random(0,5))
 		local player = EntityGetWithTag( "player_unit" )[1]
+		if player == nil then return end
 		local wallet = EntityGetFirstComponentIncludingDisabled( player, "WalletComponent" )
 		local current = ComponentGetValue2( wallet, "money" )
 		local extra = GameGetGameEffectCount( player, "EXTRA_MONEY" )

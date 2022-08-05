@@ -11,7 +11,7 @@ function damage_about_to_be_received( damage, x, y, entity_thats_responsible, cr
 		count = 0.5^count
 		new_dam = new_dam * count
 	end
-	if GameHasFlagRun("DISPARITY_PICKED_MEGALOMANIAC") then
+	if GameHasFlagRun("DISPARITY_PICKED_MEGALOMANIAC") and new_dam > 0.04 then
 		new_dam = 0.04
 	end
 	local sns_ent = EntityGetWithName("DISP_SNS_ENT")
