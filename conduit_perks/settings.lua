@@ -61,6 +61,7 @@ mod_settings =
 					{"ROCKY_START","Rocky Start"},
 					{"REVENGE_NUKE","Revenge Nuke"},
 					{"RISKY_BUSINESS","Risky Business"},
+					{"SANDBOX", "Sandbox"},
 					{"SNS_BOOST","SNS Booster"},
 					{"SOUL_STEAL","Soul Stealer"},
 					{"SPOILED_VITALITY","Spoiled Vitality"},
@@ -68,6 +69,40 @@ mod_settings =
 					{"TOIMARI","Toimari"},
 				},
 				scope = MOD_SETTING_SCOPE_RUNTIME, 
+				ui_fn=function( mod_id, gui, in_main_menu, im_id, setting )
+					local value = ModSettingGetNextValue( mod_setting_get_id(mod_id,setting) )
+					if type(value) ~= "string" then value = setting.value_default or "" end
+					local value_id = 1
+					for i,val in ipairs(setting.values) do
+						if val[1] == value then
+							value_id = i
+							break
+						end
+					end
+					local text = setting.ui_name .. ": " .. setting.values[value_id][2]
+					local clicked,right_clicked = GuiButton( gui, im_id, mod_setting_group_x_offset, 0, text )
+					if clicked then
+						local value_old = value
+						value_id = value_id + 1
+						if value_id > #(setting.values) then
+							value_id = 1
+						end
+						value = setting.values[value_id][1]
+						ModSettingSetNextValue( mod_setting_get_id(mod_id,setting), value, false  )
+						mod_setting_handle_change_callback( mod_id, gui, in_main_menu, setting, value_old, value )
+					end
+					if right_clicked and setting.value_default then
+						local value_old = value
+						value_id = value_id - 1
+						if value_id < 1 then
+							value_id = #(setting.values)
+						end
+						value = setting.values[value_id][1]
+						ModSettingSetNextValue( mod_setting_get_id(mod_id,setting), value, false  )
+						mod_setting_handle_change_callback( mod_id, gui, in_main_menu, setting, value_old, value )
+					end
+					mod_setting_tooltip( mod_id, gui, in_main_menu, setting )
+				end,
 			},
 		}
 	}
