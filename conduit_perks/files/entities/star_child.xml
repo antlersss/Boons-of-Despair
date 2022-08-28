@@ -1,17 +1,24 @@
 <Entity name="$DAMAGE_STAR_CHILD" tags="DISP_STAR_ENT">
 
 	<HomingComponent
-		_enabled="1"
-		_tags="enabled_in_world"
-		target_tag="DISP_BIG_STAR"
+		_tags="fire"
+		_enabled="0"
+		target_tag=""
 		homing_velocity_multiplier="1"
-		detect_distance="500"
-		homing_targeting_coeff="3">
+		detect_distance="90">
 	</HomingComponent>
 
+	<HomingComponent
+		_tags="fire"
+		_enabled="0"
+		target_tag="DISP_BIG_STAR"
+		homing_velocity_multiplier="1"
+		homing_targeting_coeff="3">
+	</HomingComponent>
+	
 	<MagicConvertMaterialComponent
-		_enabled="1"
-		_tags="enabled_in_world"
+		_tags="fire"
+		_enabled="0"
 		kill_when_finished="0"
 		from_material_tag="[alchemy]"
 		steps_per_frame="8"
@@ -30,6 +37,8 @@
 	</BlackHoleComponent>
 	
 	<MusicEnergyAffectorComponent
+		_tags="fire"
+		_enabled="0"
 		energy_target="20"
 		fade_range="100"
 		fog_of_war_threshold="256"
@@ -37,8 +46,8 @@
 	</MusicEnergyAffectorComponent>
 
 	<MagicConvertMaterialComponent
-		_tags="enabled_in_world"
-		_enabled="1"
+		_tags="fire"
+		_enabled="0"
 		kill_when_finished="0"
 		ignite_materials="1"
 		steps_per_frame="12"
@@ -51,8 +60,8 @@
 	</MagicConvertMaterialComponent>
 	
 	<MagicConvertMaterialComponent
-		_tags="enabled_in_world"
-		_enabled="1"
+		_tags="fire"
+		_enabled="0"
 		kill_when_finished="0"
 		from_material_tag="[water]"
 		steps_per_frame="8"
@@ -64,8 +73,8 @@
 	></MagicConvertMaterialComponent>
 	
 	<MagicConvertMaterialComponent
-		_tags="enabled_in_world"
-		_enabled="1"
+		_tags="fire"
+		_enabled="0"
 		kill_when_finished="0"
 		from_material="radioactive_liquid"
 		steps_per_frame="8"
@@ -77,8 +86,8 @@
 	></MagicConvertMaterialComponent>
 	
 	<AreaDamageComponent
-		_tags="enabled_in_world"
-		_enabled="1"
+		_tags="fire"
+		_enabled="0"
 		aabb_min.x="-25"
 		aabb_min.y="-25"
 		aabb_max.x="25"
@@ -102,7 +111,8 @@
 	</ProjectileComponent>
 
 	<ParticleEmitterComponent 
-		_tags="enabled_in_world"
+		_tags="fire"
+		_enabled="0"
 		emitted_material_name="spark"
 		fade_based_on_lifetime="1"
 		x_pos_offset_min="0"
@@ -137,7 +147,8 @@
 	</ParticleEmitterComponent>
 	
 	<ParticleEmitterComponent 
-		_tags="enabled_in_world"
+		_tags="fire"
+		_enabled="0"
 		emitted_material_name="spark_yellow"
 		attractor_force="6"
 		fade_based_on_lifetime="1"
@@ -174,14 +185,14 @@
 	<VelocityComponent
 		_tags="enabled_in_world"
 		affect_physics_bodies="1"
-		gravity_y="45"
-		air_friction="0.75"
+		gravity_y="42"
+		air_friction="1.5"
 		terminal_velocity="150">
 	</VelocityComponent>
 	
 	<SpriteComponent
-		_tags="enabled_in_world"
-		_enabled="1"
+		_tags="fire"
+		_enabled="0"
 		offset_x="32"
 		offset_y="32"
 		image_file="data/particles/fog_of_war_hole_64.png"
@@ -190,12 +201,12 @@
 	</SpriteComponent>
 	
 	<SpriteParticleEmitterComponent
-		_tags="enabled_in_world"
-		_enabled="1"
+		_enabled="0"
+		_tags="fire"
 		sprite_file="data/props_gfx/sun_small.png"
 		sprite_centered="1"
 		lifetime="0.167"
-		entity_velocity_multiplier="0.8"
+		entity_velocity_multiplier="0.99"
 		emissive="1"
 		additive="1"
 		scale.x="0.13" scale.y="0.13"
@@ -207,10 +218,12 @@
 	<LuaComponent
 		script_source_file="mods/conduit_perks/files/scripts/star_child_decay.lua"
 		script_collision_trigger_hit="mods/conduit_perks/files/scripts/star_child_control.lua"
-		execute_every_n_frame="15">
+		execute_every_n_frame="2">
 	</LuaComponent>
 	
 	<CollisionTriggerComponent
+		_enabled="0"
+		_tags="fire"
 		width="16"
 		height="16"
 		radius="16"
@@ -219,7 +232,7 @@
 	></CollisionTriggerComponent>
 
 	<VariableStorageComponent
-		value_int="40">
+		value_int="300">
 	</VariableStorageComponent>
 	
 </Entity>

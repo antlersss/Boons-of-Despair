@@ -11,8 +11,13 @@
 	
 	<LuaComponent
 		script_source_file="mods/conduit_perks/files/scripts/gold_kill.lua"
-		execute_on_removed="1"
+		execute_every_n_frame="2"
 		remove_after_executed="1">
 	</LuaComponent>
+	
+	<LuaComponent
+		script_source_file="mods/conduit_perks/files/scripts/gold_init.lua"
+		remove_after_executed="1"
+	></LuaComponent>
 	
 </Entity>
