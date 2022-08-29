@@ -12,14 +12,13 @@ current = current / 7.5
 local radius = math.min(math.log( 2.5 + ((current / 40)-9)/9 ) * 4 - 1 , 5)
 local closest_star = 0
 local close_val = 0
-local targets = EntityGetInRadiusWithTag( x, y, math.max(150/radius,16*radius), "DISP_STAR_ENT" )
+local targets = EntityGetInRadiusWithTag( x, y, math.max(300/radius,16*radius), "DISP_STAR_ENT" )
 for i, v in ipairs(targets) do
 	if v ~= entity_id then
 		local star_vsc = EntityGetFirstComponentIncludingDisabled( v, "VariableStorageComponent" )
 		local check_me = ComponentGetValue2( star_vsc, "value_int" )
 		local new_x, new_y = EntityGetTransform(v)
 		local dist = math.sqrt( ( new_x - x ) ^ 2 + ( new_y - y ) ^ 2 )
-		print(dist .. "  " .. 16*radius .. "  " .. check_me .. "  " .. current * 7.5 )
 		if close_val < dist then
 			close_val = dist
 			closest_star = v
@@ -39,10 +38,11 @@ end
 if closest_star ~= 0 then
 	local cs_fhc_id = EntityGetFirstComponentIncludingDisabled( closest_star, "HomingComponent" )
 	ComponentSetValue2( cs_fhc_id, "predefined_target", entity_id )
+	ComponentSetValue2( cs_fhc_id, "detect_distance", radius * 150 )
 	local ents_fhc_id = EntityGetFirstComponentIncludingDisabled( entity_id, "HomingComponent" )
 	ComponentSetValue2( ents_fhc_id, "predefined_target", closest_star )
 end
-targets = EntityGetInRadiusWithTag( x, y, math.ceil(radius * 30) + 12, "homing_target" )
+targets = EntityGetInRadiusWithTag( x, y, math.ceil(radius * 29), "homing_target" )
 for i, v in ipairs(targets) do
 	if not EntityHasTag( v, "DISP_STAR_CHILD_TARGET" ) and not EntityHasTag( v, "player_unit") then
 		EntityAddTag( v, "DISP_STAR_CHILD_TARGET")
@@ -94,16 +94,16 @@ for i, v in ipairs(particle_emitters) do
 end
 local spec_id = EntityGetFirstComponentIncludingDisabled( entity_id, "SpriteParticleEmitterComponent" )
 ComponentSetValue2( spec_id, "color", rgb_list[1], rgb_list[2], rgb_list[3], 0.9 )
-ComponentSetValue2( spec_id, "scale", radius * 0.13, radius * 0.13)
+ComponentSetValue2( spec_id, "scale", radius * 0.17, radius * 0.13)
 local adc_id = EntityGetFirstComponentIncludingDisabled( entity_id, "AreaDamageComponent" )
 ComponentSetValue2( adc_id, "damage_per_frame", 0.18 * radius)
 ComponentSetValue2( adc_id, "entity_responsible", entity_id )
-ComponentSetValue2( adc_id, "circle_radius", math.ceil(radius * 25) )
-ComponentSetValue2( adc_id, "aabb_min", math.ceil(radius * -25), math.ceil(radius * -25))
-ComponentSetValue2( adc_id, "aabb_max", math.ceil(radius * 25), math.ceil(radius * 25))
+ComponentSetValue2( adc_id, "circle_radius", math.ceil(radius * 21) )
+ComponentSetValue2( adc_id, "aabb_min", math.ceil(radius * -21), math.ceil(radius * -21))
+ComponentSetValue2( adc_id, "aabb_max", math.ceil(radius * 21), math.ceil(radius * 21))
 local magic_conversion_comps = EntityGetComponentIncludingDisabled( entity_id, "MagicConvertMaterialComponent" )
 for i, v in ipairs(magic_conversion_comps) do
-	if i == 1 and radius > 2.5 then
+	if i == 1 and radius > 3.2 then
 		ComponentSetValue2( v, "to_material", CellFactory_GetType("lava") )
 		if radius > 4.8 then
 			ComponentSetValue2( v, "convert_entities", true )
@@ -123,21 +123,21 @@ ComponentSetValue2( music_comp, "energy_target", 20 * radius )
 local bh_comp = EntityGetFirstComponentIncludingDisabled( entity_id, "BlackHoleComponent" )
 if radius > 4 then
 	EntitySetComponentIsEnabled( entity_id, bh_comp, true )
-	ComponentSetValue2( bh_comp, "damage_probability", 20 * radius )
-	ComponentSetValue2( bh_comp, "radius", math.ceil((radius - 0.5) * 26) + 1)
+	ComponentSetValue2( bh_comp, "damage_probability", 10 * radius )
+	ComponentSetValue2( bh_comp, "radius", math.ceil((radius - 0.25) * 26))
 	ComponentSetValue2( bh_comp, "particle_attractor_force", radius/1.35)
-	ComponentSetValue2( bh_comp, "damage_amount", (radius - 2) * 0.1 )
+	ComponentSetValue2( bh_comp, "damage_amount", (radius - 2.5) * 0.1 )
 else
 	EntitySetComponentIsEnabled( entity_id, bh_comp, false )
 end
 
-local did_hit, _, hit_y = RaytracePlatforms( x, y, x, y + math.ceil(radius * 18 ))
+local did_hit, _, hit_y = RaytraceSurfacesAndLiquiform( x, y, x, y + math.ceil(radius * 19 ))
 if did_hit then
 	local vc_id = EntityGetFirstComponentIncludingDisabled( entity_id, "VelocityComponent" )
 	local vx, vy = ComponentGetValue2( vc_id, "mVelocity" )
-	local float_force = (hit_y - y) / 12.5
-	vy = vy * 0.825 - ( 0.1 * float_force)
-	vx = vx * 0.95 + (ProceduralRandomf( x, y, -2, 2 ) * float_force)
+	local float_force = math.max(20 - (hit_y - y), 0) / 3 + 1
+	vy = vy * 0.9 - ( 0.33 * float_force)
+	vx = vx * (0.935 + ProceduralRandomf( x, y, 0, 0.08 )) + (ProceduralRandomf( x, y, -0.15, 0.15 ) * float_force)
 	ComponentSetValue2( vc_id, "mVelocity", vx, vy )
 end
 
