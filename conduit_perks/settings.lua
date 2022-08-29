@@ -61,7 +61,7 @@ mod_settings =
 					{"ROCKY_START","Rocky Start"},
 					{"REVENGE_NUKE","Revenge Nuke"},
 					{"RISKY_BUSINESS","Risky Business"},
-					{"SANDBOX", "Sandbox"},
+					--{"SANDBOX", "Sandbox"},
 					{"SNS_BOOST","SNS Booster"},
 					{"SOUL_STEAL","Soul Stealer"},
 					{"SPOILED_VITALITY","Spoiled Vitality"},
