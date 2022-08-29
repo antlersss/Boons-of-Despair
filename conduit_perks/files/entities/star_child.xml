@@ -187,7 +187,8 @@
 		affect_physics_bodies="1"
 		gravity_y="42"
 		air_friction="1.5"
-		terminal_velocity="150">
+		terminal_velocity="150"
+		liquid_drag="0">
 	</VelocityComponent>
 	
 	<SpriteComponent
