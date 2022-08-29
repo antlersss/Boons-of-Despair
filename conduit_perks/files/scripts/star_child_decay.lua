@@ -42,7 +42,7 @@ if closest_star ~= 0 then
 	local ents_fhc_id = EntityGetFirstComponentIncludingDisabled( entity_id, "HomingComponent" )
 	ComponentSetValue2( ents_fhc_id, "predefined_target", closest_star )
 end
-targets = EntityGetInRadiusWithTag( x, y, math.ceil(radius * 29), "homing_target" )
+targets = EntityGetInRadiusWithTag( x, y, math.ceil(radius * 29) + 1, "homing_target" )
 for i, v in ipairs(targets) do
 	if not EntityHasTag( v, "DISP_STAR_CHILD_TARGET" ) and not EntityHasTag( v, "player_unit") then
 		EntityAddTag( v, "DISP_STAR_CHILD_TARGET")
